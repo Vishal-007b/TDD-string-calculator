@@ -11,7 +11,7 @@ function calculateSum(numbers) {
     return num;
   }
 
-  const numbersArr = numbers.split(',').map(numStr => {
+  const numbersArr = numbers.replace(/\n/g, ',').split(',').map(numStr => {
     const num = parseInt(numStr, 10);
     if (Number.isNaN(num)) {
       throw new Error(`Invalid number provided: ${numStr}`);
