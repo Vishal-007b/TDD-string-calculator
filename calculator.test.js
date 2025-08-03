@@ -28,3 +28,9 @@ test('should handle new lines between numbers', () => {
   expect(calculateSum("1\n2,3")).toBe(6);
   expect(calculateSum("1\n2\n3")).toBe(6);
 });
+
+test('should support different delimiters', () => {
+  expect(calculateSum("//;\n1;2")).toBe(3);
+  expect(calculateSum("//|\n1|2|3")).toBe(6);
+  expect(calculateSum("//sep\n1sep2sep3")).toBe(6);
+});
