@@ -9,7 +9,10 @@ function calculateSum(numbers) {
 
   if (numbers.startsWith("//")) {
     const delimiterEndIndex = numbers.indexOf('\n');
-    const delimiterStr = numbers.substring(2, delimiterEndIndex);
+    let delimiterStr = numbers.substring(2, delimiterEndIndex);
+    if (delimiterStr.startsWith('[') && delimiterStr.endsWith(']')) {
+      delimiterStr = delimiterStr.substring(1, delimiterStr.length - 1);
+    }
 
     // Escape special characters in the delimiter for use in the RegExp
     const escapedDelimiter = delimiterStr.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
