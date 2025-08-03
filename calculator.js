@@ -32,7 +32,9 @@ function calculateSum(numbers) {
     throw new Error(`negative numbers not allowed ${negativeNumbers.join(',')}`);
   }
 
-  return numbersArr.reduce((sum, current) => sum + current, 0);
+  return numbersArr
+    .filter(num => num <= 1000)
+    .reduce((sum, current) => sum + current, 0);
 }
 
 module.exports = calculateSum;

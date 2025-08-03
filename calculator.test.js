@@ -39,3 +39,9 @@ test('should throw an error for negative numbers', () => {
   expect(() => calculateSum("-1")).toThrow("negative numbers not allowed -1");
   expect(() => calculateSum("1,-2,-3")).toThrow("negative numbers not allowed -2,-3");
 });
+
+test('should ignore numbers bigger than 1000', () => {
+  expect(calculateSum("2,1001")).toBe(2);
+  expect(calculateSum("1000,1001,2")).toBe(1002);
+});
+
