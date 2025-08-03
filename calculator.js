@@ -18,7 +18,6 @@ function calculateSum(numbers) {
     numbersStr = numbers.substring(delimiterEndIndex + 1);
   }
 
-
   const numbersArr = numbersStr.split(delimiter).map(numStr => {
     const num = parseInt(numStr, 10);
     if (Number.isNaN(num)) {
@@ -26,6 +25,12 @@ function calculateSum(numbers) {
     }
     return num;
   });
+
+  const negativeNumbers = numbersArr.filter(num => num < 0);
+
+  if (negativeNumbers.length > 0) {
+    throw new Error(`negative numbers not allowed ${negativeNumbers.join(',')}`);
+  }
 
   return numbersArr.reduce((sum, current) => sum + current, 0);
 }

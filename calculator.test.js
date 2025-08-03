@@ -34,3 +34,8 @@ test('should support different delimiters', () => {
   expect(calculateSum("//|\n1|2|3")).toBe(6);
   expect(calculateSum("//sep\n1sep2sep3")).toBe(6);
 });
+
+test('should throw an error for negative numbers', () => {
+  expect(() => calculateSum("-1")).toThrow("negative numbers not allowed -1");
+  expect(() => calculateSum("1,-2,-3")).toThrow("negative numbers not allowed -2,-3");
+});
