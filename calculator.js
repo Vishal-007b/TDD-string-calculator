@@ -11,19 +11,14 @@ function calculateSum(numbers) {
     return num;
   }
 
-  const numbersArr = numbers.split(",");
-  const num1 = parseInt(numbersArr[0], 10);
-  const num2 = parseInt(numbersArr[1], 10);
-
-  if (Number.isNaN(num1)) {
-    throw new Error(`Invalid number provided: ${numbersArr[0]}`);
-  }
-
-  if (Number.isNaN(num2)) {
-    throw new Error(`Invalid number provided: ${numbersArr[1]}`);
-  }
-
-  return num1 + num2;
+  const numbersArr = numbers.split(',').map(numStr => {
+    const num = parseInt(numStr, 10);
+    if (Number.isNaN(num)) {
+      throw new Error(`Invalid number provided: ${numStr}`);
+    }
+    return num;
+  });
+  return numbersArr.reduce((sum, current) => sum + current, 0);
 }
 
 module.exports = calculateSum;

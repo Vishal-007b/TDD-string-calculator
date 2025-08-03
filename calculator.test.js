@@ -17,3 +17,9 @@ test("should throw an error for invalid number input", () => {
   expect(() => calculateSum("a")).toThrow("Invalid number provided: a");
   expect(() => calculateSum("1,a")).toThrow("Invalid number provided: a");
 });
+
+
+test('should return the sum of any amount of numbers', () => {
+  expect(calculateSum("1,2,3,4,5")).toBe(15);
+  expect(calculateSum("10,20,30,40,50")).toBe(150);
+});
