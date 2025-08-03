@@ -54,3 +54,7 @@ test('should support delimiters of any length', () => {
 test('should support multiple delimiters', () => {
   expect(calculateSum("//[*][%]\n1*2%3")).toBe(6);
 });
+
+test('should handle multiple delimiters with length longer than one char', () => {
+  expect(calculateSum("//[**][%%%]\n1**2%%%3")).toBe(6);
+});
