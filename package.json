@@ -1,0 +1,24 @@
+{
+  "name": "tdd-string-calculator",
+  "version": "1.0.0",
+  "main": "calculator.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vishal-007b/TDD-string-calculator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vishal-007b/TDD-string-calculator/issues"
+  },
+  "homepage": "https://github.com/Vishal-007b/TDD-string-calculator#readme",
+  "description": "",
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "jest": "^30.0.5"
+  }
+}
