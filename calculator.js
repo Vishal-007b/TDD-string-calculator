@@ -9,15 +9,20 @@ function calculateSum(numbers) {
 
   if (numbers.startsWith("//")) {
     const delimiterEndIndex = numbers.indexOf('\n');
-    let delimiterStr = numbers.substring(2, delimiterEndIndex);
-    if (delimiterStr.startsWith('[') && delimiterStr.endsWith(']')) {
-      delimiterStr = delimiterStr.substring(1, delimiterStr.length - 1);
+    let delimiterSection = numbers.substring(2, delimiterEndIndex);
+    let delimiters;
+
+    if (delimiterSection.startsWith('[')) {
+      delimiters = delimiterSection.substring(1, delimiterSection.length - 1).split('][');
+    } else {
+      delimiters = [delimiterSection];
     }
 
-    // Escape special characters in the delimiter for use in the RegExp
-    const escapedDelimiter = delimiterStr.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const escapedDelimiters = delimiters.map(d => {
+      return d.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    });
     
-    delimiter = new RegExp(escapedDelimiter);
+    delimiter = new RegExp(escapedDelimiters.join('|'));
     numbersStr = numbers.substring(delimiterEndIndex + 1);
   }
 

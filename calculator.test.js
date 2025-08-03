@@ -49,3 +49,8 @@ test('should ignore numbers bigger than 1000', () => {
 test('should support delimiters of any length', () => {
   expect(calculateSum("//[***]\n1***2***3")).toBe(6);
 });
+
+
+test('should support multiple delimiters', () => {
+  expect(calculateSum("//[*][%]\n1*2%3")).toBe(6);
+});
